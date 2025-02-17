@@ -25,6 +25,11 @@ module.exports = (sequelize, DataTypes) => {
       building: { type: DataTypes.INTEGER(2), allowNull: true },
       bio: { type: DataTypes.STRING(500), allowNull: true },
       admin: { type: DataTypes.BOOLEAN, allowNull: false, default: false },
+      termsAndConditions: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+      },
     },
     {
       /* Other model options go here */
