@@ -24,3 +24,6 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Ignore the content of pelican-backend/upload
+pelican-backend/upload/
