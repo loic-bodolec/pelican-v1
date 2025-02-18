@@ -2,7 +2,6 @@ const bcrypt = require("bcrypt"); // hachage du password
 const db = require("../models"); // modèles de la bdd
 const token = require("../middlewares/token"); // middleware qui génère le token
 const fs = require("fs");
-// const { Op } = require("sequelize");
 
 // Création d'un compte utilisateur
 exports.signup = async (req, res) => {
@@ -110,41 +109,9 @@ exports.updateAccount = async (req, res) => {
   const id = req.params.id;
   try {
     const userId = token.getUserId(req);
-    let newPhoto;
     let user = await db.user.findOne({ where: { id: id } }); // on trouve le user
     if (userId === user.id) {
-      if (req.file && user.photo) {
-        newPhoto = `${req.protocol}://${req.get("host")}/upload/${req.file.filename}`;
-        const filename = user.photo.split("/upload")[1];
-        fs.unlink(`upload/${filename}`, (err) => {
-          // s'il y avait déjà une photo on la supprime
-          if (err) console.log(err);
-          else {
-            console.log(`Deleted file: upload/${filename}`);
-          }
-        });
-      } else if (req.file) {
-        newPhoto = `${req.protocol}://${req.get("host")}/upload/${req.file.filename}`;
-      }
-      if (newPhoto) {
-        user.photo = newPhoto;
-      }
-      if (req.body.building) {
-        user.building = req.body.building;
-      }
-      if (req.body.email) {
-        user.email = req.body.email;
-      }
-      if (req.body.bio) {
-        user.bio = req.body.bio;
-      }
-      if (req.body.pseudo) {
-        user.pseudo = req.body.pseudo;
-      }
-      if (req.body.password) {
-        const newHash = await bcrypt.hash(req.body.password, 10);
-        user.password = newHash;
-      }
+      user = await updateUserDetails(req, user);
       const newUser = await user.save({
         fields: ["pseudo", "email", "password", "building", "bio", "photo"],
       }); // on sauvegarde les changements dans la bdd
@@ -158,6 +125,51 @@ exports.updateAccount = async (req, res) => {
   } catch (error) {
     return res.status(500).send({ error: "erreur serveur" });
   }
+};
+
+const updateUserDetails = async (req, user) => {
+  let newPhoto;
+  if (req.file && user.photo) {
+    newPhoto = await handlePhotoUpdate(req, user.photo);
+  } else if (req.file) {
+    newPhoto = `${req.protocol}://${req.get("host")}/upload/${req.file.filename}`;
+  }
+  if (newPhoto) {
+    user.photo = newPhoto;
+  }
+  if (req.body.building) {
+    user.building = req.body.building;
+  }
+  if (req.body.email) {
+    user.email = req.body.email;
+  }
+  if (req.body.bio) {
+    user.bio = req.body.bio;
+  }
+  if (req.body.pseudo) {
+    user.pseudo = req.body.pseudo;
+  }
+  if (req.body.password) {
+    const newHash = await bcrypt.hash(req.body.password, 10);
+    user.password = newHash;
+  }
+  return user;
+};
+
+const handlePhotoUpdate = (req, currentPhoto) => {
+  return new Promise((resolve, reject) => {
+    const newPhoto = `${req.protocol}://${req.get("host")}/upload/${req.file.filename}`;
+    const filename = currentPhoto.split("/upload")[1];
+    fs.unlink(`upload/${filename}`, (err) => {
+      if (err) {
+        console.log(err);
+        reject(err);
+      } else {
+        console.log(`Deleted file: upload/${filename}`);
+        resolve(newPhoto);
+      }
+    });
+  });
 };
 
 // Supprime un compte
