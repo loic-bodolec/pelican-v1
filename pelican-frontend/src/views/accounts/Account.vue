@@ -148,12 +148,7 @@
               class="profil-middle__right d-flex flex-column"
             >
               <v-avatar size="90px" class="mt-2">
-                <img
-                  rounded
-                  v-if="user.photo"
-                  :src="user.photo"
-                  alt="Photo de profil"
-                />
+                <img rounded v-if="user.photo" :src="user.photo" alt="profil" />
                 <v-icon
                   :color="isLoggedIn"
                   size="90px"

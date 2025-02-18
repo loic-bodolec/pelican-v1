@@ -12,25 +12,25 @@
       </p>
       <p class="subheading font-weight-regular mt-5 px-3">
         Pour s'inscrire sur ce réseau social, il vous faut renseigner :
-        <span
-          ><li>Le code de la résidence</li>
+        <ul>
+          <li>Le code de la résidence</li>
           <li>Un pseudo</li>
           <li>Une adresse mail valide</li>
           <li>Votre n° de bâtiment</li>
-          <li>Un mot de passe</li></span
-        >
+          <li>Un mot de passe</li>
+        </ul>
       </p>
       <p class="subheading font-weight-regular mt-5 px-3">
         Une fois connecté, vous pouvez voir les
         <strong>publications ("posts")</strong> des utilisateurs et publier au
         choix :
-        <span
-          ><li>Un message</li>
+        <ul>
+          <li>Un message</li>
           <li>
             Un message + une image (formats : jpeg / jpg / png / bmp / gif)
           </li>
-          <li>Un message + un lien vidéo (YouTube uniquement)</li></span
-        >
+          <li>Un message + un lien vidéo (YouTube uniquement)</li>
+        </ul>
       </p>
       <p class="subheading font-weight-regular mt-5 px-3">
         Les posts peuvent être likés et/ou commentés.
@@ -73,7 +73,7 @@
 
 <style scoped>
 .arobase::before {
-    content: "\000040";
-    font-size: inherit !important;
+  content: "\000040";
+  font-size: inherit !important;
 }
 </style>

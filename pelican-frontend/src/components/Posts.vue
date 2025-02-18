@@ -21,9 +21,7 @@
                 size="52px"
                 >$vuetify.icons.account</v-icon
               >
-              <v-icon role="avatar" size="52px" v-else
-                >$vuetify.icons.account</v-icon
-              >
+              <v-icon size="52px" v-else>$vuetify.icons.account</v-icon>
             </v-avatar>
             <div class="name-date-building mt-3">
               <span class="pseudo text-left ml-5">{{ post.user.pseudo }}</span>
@@ -302,12 +300,15 @@
                       "
                       color="pink"
                       size="38px"
-                      role="avatar"
                       >$vuetify.icons.account</v-icon
                     >
-                    <v-icon v-else size="38px" role="avatar"
-                      >$vuetify.icons.account</v-icon
-                    >
+                    <img
+                      v-else
+                      :src="$vuetify.icons.account"
+                      alt="Account Icon"
+                      width="38"
+                      height="38"
+                    />
                   </v-list-item-avatar>
 
                   <v-list-item-content class="comment_body d-flex">
@@ -448,7 +449,8 @@ export default {
       this.$store.dispatch("getPostById", this.post.id);
     },
     deleteComment(id) {
-      this.$store.dispatch("deleteComment", id), this.reloadThread();
+      this.$store.dispatch("deleteComment", id);
+      this.reloadThread();
     },
     dateFormat(date) {
       const event = new Date(date);
@@ -514,7 +516,7 @@ export default {
   fill: #424242;
 }
 .emoji-picker {
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
   border: 1px solid #ccc;
   width: 100%;
   height: 20rem;

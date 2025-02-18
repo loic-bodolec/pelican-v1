@@ -73,14 +73,14 @@
             Autres infos :
           </h4>
           <p class="subheading font-weight-regular pb-3 mt-2 px-5">
-            <span
-              ><li>
+            <ul>
+              <li>
                 L'entretien de la copropriété est assuré par la société YANET.
               </li>
               <li>
                 Les cartons et les encombrants sont à évacuer à la déchetterie.
-              </li></span
-            >
+              </li>
+            </ul>
           </p>
         </v-card>
       </v-col>
@@ -113,4 +113,5 @@ export default {
 </script>
 
 <style scoped>
+/* Add your component-specific styles here */
 </style>

@@ -64,8 +64,12 @@
           </div>
           <div>
             <div class="d-flex justify-space-around">
-              <v-btn rounded aria-label="lien-btn" @click="toggleLink" small> Lien </v-btn>
-              <v-btn rounded aria-label="image-btn" @click="toggleImage" small> Image </v-btn>
+              <v-btn rounded aria-label="lien-btn" @click="toggleLink" small>
+                Lien
+              </v-btn>
+              <v-btn rounded aria-label="image-btn" @click="toggleImage" small>
+                Image
+              </v-btn>
             </div>
           </div>
         </v-card-text>
@@ -96,7 +100,13 @@
           </div>
         </div>
         <div class="pb-5 pt-5 d-flex justify-center">
-          <v-btn rounded @click="onSubmit" :disabled="!isValid" aira-label="poster-btn">Poster</v-btn>
+          <v-btn
+            rounded
+            @click="onSubmit"
+            :disabled="!isValid"
+            aira-label="poster-btn"
+            >Poster</v-btn
+          >
         </div>
       </v-form>
       <br />
@@ -111,8 +121,7 @@
 
 <script>
 import Editor from "@tinymce/tinymce-vue";
-import { mdiMessageSettingsOutline } from "@mdi/js";
-import { mdiHospitalBox } from "@mdi/js";
+import { mdiMessageSettingsOutline, mdiHospitalBox } from "@mdi/js";
 
 export default {
   name: "NewActuality",
@@ -149,10 +158,12 @@ export default {
   },
   methods: {
     toggleLink() {
-      (this.withLink = true), (this.options = false);
+      this.withLink = true;
+      this.options = false;
     },
     toggleImage() {
-      (this.withImage = true), (this.options = false);
+      this.withImage = true;
+      this.options = false;
     },
     uploadImage() {
       const file = this.$refs.file.files[0];
@@ -175,4 +186,5 @@ export default {
 };
 </script>
 <style scoped>
+/* Add your component-specific styles here */
 </style>

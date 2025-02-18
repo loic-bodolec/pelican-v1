@@ -10,7 +10,7 @@ import LazyYoutube from "vue-lazytube";
 
 Vue.config.productionTip = false;
 
-const moment = require("moment"); // gestion de l'affichage des dates avec vue-moment
+const moment = require("moment");
 require("moment/locale/fr");
 Vue.use(require("vue-moment"), {
   moment,
