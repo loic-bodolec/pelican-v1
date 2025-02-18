@@ -12,11 +12,7 @@
           <div class="d-flex justify-space-between">
             <v-card-title flat dense dark>
               <v-avatar size="42px" class="mt-3">
-                <img
-                  v-if="user.photo"
-                  :src="user.photo"
-                  alt="Photo de profil"
-                />
+                <img v-if="user.photo" :src="user.photo" alt="Profil" />
                 <v-icon
                   role="avatar"
                   v-else-if="

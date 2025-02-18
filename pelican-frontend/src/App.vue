@@ -29,13 +29,14 @@ export default {
   },
   mounted() {
     if (this.$store.state.isLoggedIn) {
-    this.$store.dispatch("getUsers");
-    this.$store.dispatch("getUserById", this.user.id);
+      this.$store.dispatch("getUsers");
+      this.$store.dispatch("getUserById", this.user.id);
     }
   },
 };
 </script>
 
 <style lang="scss">
+/* Add your component-specific styles here */
 </style>
 

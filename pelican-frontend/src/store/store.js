@@ -82,7 +82,10 @@ export default new Vuex.Store({
       state.users = users;
     },
     UPDATE_ACCOUNT(state, id, user) {
-      state.users.find((element) => element.id === id), user;
+      const index = state.users.findIndex((element) => element.id === id);
+      if (index !== -1) {
+        Vue.set(state.users, index, user);
+      }
       state.message = "compte modifié";
     },
     DELETE_ACCOUNT(state, id) {
@@ -101,13 +104,16 @@ export default new Vuex.Store({
 
     // posts
     GET_POSTS(state, posts) {
-      (state.posts = posts), (state.isLoading = false);
+      state.posts = posts;
+      state.isLoading = false;
     },
     GET_HOT_POSTS(state, posts) {
-      (state.posts = posts), (state.isLoading = false);
+      state.posts = posts;
+      state.isLoading = false;
     },
     GET_USER_POSTS(state, posts) {
-      (state.posts = posts), (state.isLoading = false);
+      state.posts = posts;
+      state.isLoading = false;
     },
     GET_POST_BY_ID(state, post) {
       state.post = post;
@@ -132,10 +138,12 @@ export default new Vuex.Store({
 
     // actualities
     GET_ACTUALITIES(state, actualities) {
-      (state.actualities = actualities), (state.isLoading = false);
+      state.actualities = actualities;
+      state.isLoading = false;
     },
     GET_ALL_ACTUALITIES_WITH_TITLE_CONTAINT(state, actualities) {
-      (state.actualities = actualities), (state.isLoading = false);
+      state.actualities = actualities;
+      state.isLoading = false;
     },
     GET_ACTUALITY_BY_ID(state, actuality) {
       state.actuality = actuality;
