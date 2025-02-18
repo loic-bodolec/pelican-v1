@@ -12,13 +12,13 @@ const signupService = async (data, file, protocol, host) => {
   });
   const hashCode = await bcrypt.compare(data.code, residence.code);
   if (!hashCode) {
-    throw new Error("le code de la résidence est erroné !");
+    throw new Error("Le code de la résidence est erroné !");
   }
   if (user !== null) {
     if (user.pseudo === data.pseudo) {
-      throw new Error("ce pseudo est déjà utilisé !");
+      throw new Error("Ce pseudo est déjà utilisé !");
     } else if (user.email === data.email) {
-      throw new Error("cet email est déjà utilisé !");
+      throw new Error("Cet email est déjà utilisé !");
     }
   } else {
     const hash = await bcrypt.hash(data.password, 10);
@@ -34,7 +34,7 @@ const signupService = async (data, file, protocol, host) => {
       user: newUser,
       token: tokenObject.token,
       expires: tokenObject.expiresIn,
-      message: `votre compte est bien créé ${newUser.pseudo} !`,
+      message: `Votre compte est bien créé ${newUser.pseudo} !`,
     };
   }
 };
