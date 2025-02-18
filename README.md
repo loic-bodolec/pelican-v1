@@ -110,22 +110,24 @@ Open the pelican-frontend folder in your editor's terminal then:
 
 - **LIKE (FAVORITE)**
 
-| Method |        Path         | Purpose |
-| :----: | :-----------------: | :-----: |
-|  POST  | /api/posts/:id/like |  Like a post  |
+| Method |        Path         |   Purpose   |
+| :----: | :-----------------: | :---------: |
+|  POST  | /api/posts/:id/like | Like a post |
 
 - **ACTUALITY**
 
-| Method |         Path         |       Purpose       |
-| :----: | :------------------: | :-----------------: |
-|  POST  | /api/actualities/add | Create an actuality |
-|  GET   |   /api/actualities   | Get all actualities |
+| Method |                   Path                   |           Purpose            |
+| :----: | :--------------------------------------: | :--------------------------: |
+|  POST  |           /api/actualities/add           |     Create an actuality      |
+|  GET   |             /api/actualities             |     Get all actualities      |
 |  GET   | /api/actualities/contain?title=${title}` | Get actualities with title=? |
-|  GET   | /api/actualities/:id |  Get one actuality  |
-|  PUT   | /api/actualities/:id | Update an actuality |
-| DELETE | /api/actualities/:id | Delete an actuality |
+|  GET   |           /api/actualities/:id           |      Get one actuality       |
+|  PUT   |           /api/actualities/:id           |     Update an actuality      |
+| DELETE |           /api/actualities/:id           |     Delete an actuality      |
 
 ## Physical data model of the database
+
+**_(must be updated)_**
 
 ![physical data model](https://imgur.com/nGvVW25.png)
 
