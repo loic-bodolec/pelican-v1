@@ -161,8 +161,10 @@ You can consult the news of the residence. Only the administrator can create, up
 
 ## To do
 
-- Backend : reorganize folders structure by layer (ex: A "services" folder will include all the business logic.)
+- ~~Backend : reorganize folders structure by layer (ex: A "services" folder will include all the business logic.)~~
 - Frontend : reorganize "store" folder
+- Frontend : migrate to vue 3
+- Frontend / Backend : use WebSocket
 - Frontend / Backend : testing (units, integration, e2e)
 
 ...then refactore code (when relevant!) and add new features!

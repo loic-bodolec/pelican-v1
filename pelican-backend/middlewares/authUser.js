@@ -32,7 +32,7 @@ exports.valid = (req, res, next) => {
 };
 exports.checkPseudo = (req, res, next) => {
   // on vérifie le pseudo
-  const regex = /^[a-zA-Z0-9_]{3,30}$/; // Lettres, espaces et doit être entre 3 et 30 caractères
+  const regex = /^\w{3,30}$/; // Lettres, espaces et doit être entre 3 et 30 caractères
   const pseudo = req.body.pseudo;
   if (regex.test(pseudo) === true) {
     next();
