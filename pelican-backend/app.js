@@ -7,7 +7,7 @@ const helmet = require("helmet"); // helmet helps you secure Express apps by set
 require("dotenv").config();
 
 // routes
-const userRoutes = require("./routes/user");
+const usersRoutes = require("./routes/users");
 const postsRoutes = require("./routes/posts");
 const actualitiesRoutes = require("./routes/actualities");
 
@@ -31,7 +31,7 @@ app.use(express.json()); // Activation du raw (json)
 app.use(express.urlencoded({ extended: true })); // Activation de x-wwww-form-urlencoded
 app.use(helmet()); // helmet
 
-app.use("/api/users", userRoutes);
+app.use("/api/users", usersRoutes);
 app.use("/api/posts", postsRoutes);
 app.use("/api/actualities", actualitiesRoutes);
 

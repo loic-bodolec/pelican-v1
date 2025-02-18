@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const rateLimit = require("express-rate-limit"); // Contre les attaques par force brute
 
-const userCtrl = require("../controllers/user");
+const userCtrl = require("../controllers/users");
 const authUser = require("../middlewares/authUser");
 const auth = require("../middlewares/auth");
 const multer = require("../middlewares/multer-config");
