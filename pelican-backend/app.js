@@ -17,14 +17,14 @@ const { sequelize } = require("./models/index");
 // initialisation de Express
 const app = express();
 
-// app.use(cors()); Ici, toutes les requêtes entre serveurs sont autorisées.
+app.use(cors()); // Ici, toutes les requêtes entre serveurs sont autorisées.
 
-app.use(
-  cors({
-    origin: "http://localhost:8080",
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: ["http://localhost:8080", "http://localhost:5173"],
+//     credentials: true,
+//   })
+// );
 
 app.use(morgan("tiny")); // Utilisation d'un format prédéfini ("tiny" : simple logging without too much information in the logs)
 app.use(express.json()); // Activation du raw (json)
